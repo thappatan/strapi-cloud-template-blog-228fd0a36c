@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nitrogen_types",
+  "info": {
+    "singularName": "nitrogen-type",
+    "pluralName": "nitrogen-types",
+    "displayName": "ประเภทของไนโตรเจน",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "nitrogen_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "p_nitrogen_types"
+    }
+  }
+}

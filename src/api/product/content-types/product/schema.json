@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "ผลิตภัณฑ์",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "p_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-group.product-group",
+      "inversedBy": "groups"
+    },
+    "p_nutrients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::nutrient.nutrient",
+      "inversedBy": "nutrients"
+    },
+    "p_nitrogen_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::nitrogen-type.nitrogen-type",
+      "inversedBy": "nitrogen_types"
+    },
+    "p_fertilizes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::how-to-fertilize.how-to-fertilize",
+      "inversedBy": "fertilizes"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "rightContent": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "leftContent": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}

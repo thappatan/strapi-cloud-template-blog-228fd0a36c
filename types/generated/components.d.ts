@@ -51,6 +51,22 @@ export interface SharedQuote extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMember extends Struct.ComponentSchema {
+  collectionName: 'components_shared_members';
+  info: {
+    displayName: 'Member';
+    description: '';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String;
+    facebookURL: Schema.Attribute.String;
+    instagramURL: Schema.Attribute.String;
+    email: Schema.Attribute.Email;
+    image: Schema.Attribute.Component<'shared.media', false>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -69,6 +85,7 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
+      'shared.member': SharedMember;
       'shared.media': SharedMedia;
     }
   }

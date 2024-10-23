@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "how_to_fertilizes",
+  "info": {
+    "singularName": "how-to-fertilize",
+    "pluralName": "how-to-fertilizes",
+    "displayName": "วิธีการใส่ปุ๋ย"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "fertilizes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "p_fertilizes"
+    }
+  }
+}
